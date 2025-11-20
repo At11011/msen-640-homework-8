@@ -1,0 +1,104 @@
+\input{./src/main.sty}
+
+\begin{document}
+
+\input{./src/titlepage.tex}
+
+\pagebreak
+
+\begin{enumerate}
+  \item Consider the blank phase diagram below
+    \includegraphics[width=0.6\textwidth]{./assets/fig_1.png}
+    \begin{enumerate}[(a)]
+      \item Given that the phases present are $\alpha, \beta,
+        \gamma,$ and $L$, label
+        all of the single phase and two phase
+        regions. Note that $\alpha$ is the crystal structure of pure
+        component 1 and $\beta$ is the crystal structure of
+        pure component 2.
+      \item Sketch a plausible phase diagram for the same system with
+        $T$ vs. $a_2$ (activity of component 2)
+        axes.
+    \end{enumerate}
+
+    \pagebreak
+
+  \item Consider a 2D strip of silicon (conductivity $\sigma =
+      \SI{4.35e-4}{\per(\ohm\meter)}$, Seebeck coefficient
+    $S = \SI{440}{\micro\volt\per\kelvin})$.
+    Using the expression for electrical current density
+    $\bm{J_q} = -\sigma\Delta\phi - \sigma S\Delta T$:
+
+    \begin{enumerate}
+      \item Determine the temperature gradient needed to maintain a
+        potential difference of \SI{8}{\volt} across the
+        material, assuming that no net current is transferred.
+      \item If the material is a $\SI{1}{cm} \times \SI{1}{\centi\meter}$
+        panel (with the bottom-left corner at the origin) and \SI{8}{\volt}
+        is maintained across the $x$-direction with potential function
+        $\phi(x) = (\SI{8}{\volt\per\centi\meter})x$ and a temperature
+        difference of \SI{10}{\kelvin} is maintained along the y-direction
+        with temperature function $T(y) = \SI{300}{\kelvin} +
+        (\SI{10}{\kelvin/\centi\meter})y$, determine the magnitude of the
+        current density.
+    \end{enumerate}
+
+    \pagebreak
+
+  \item Consider a very simple model of a pickering emulsion. A
+    spherical drop of oil with radius $r_{\text{oil}} = \SI{50}{\micro\meter}$
+    suspended in water; the interfacial free energy density of the
+    oil-water interface is
+    $\gamma_\text{oil-water} = \SI{0.05}{\joule\per\meter\squared}$.
+    Now, microspherical particles of radius $r_\mu = \SI{1}{\micro\meter}$
+    that are functionalized to have an
+    interfacial energy density
+    $\gamma_\text{$\mu$-oil} = \SI{0.01}{\joule\per\meter\squared}$
+    for regions exposed to oil and
+    $\gamma_{\text{$\mu$-water}} = \SI{0.02}{\joule\per\meter\squared}$ for
+    regions exposed to water.
+
+    \begin{enumerate}[(a)]
+      \item If a microsphere is brought from the pure water region into the
+        pure oil region (so that it is completely immersed in water and oil),
+        compute the change in enthalpy of the system, assuming that
+        the enthalpy is dominated by the interfacial cost (H ≈ γA).
+      \item If a microsphere is brought from the pure water region to the
+        oil-water interface, calculate the change in entropy,
+        assuming that half of the particle’s surface is in the oil and
+        the other half is in the water.
+      \item What is the change in the enthalpy of the oil-in-water droplet if
+        50\% of the droplet’s surface is covered with microspheres?
+      \item Using the result of (c) determine the effective interfacial free
+        energy density $\gamma_\text{eff} = H/A$ of the oil droplet at
+        50\% coverage.
+    \end{enumerate}
+
+    \pagebreak
+
+  \item Consider a pool of molten magnesium in an open furnace (so that there
+    is a vapor phase above the liquid phase). The melt is held at a
+    temperature of $T = \SI{800}{\celsius}$ and has the following properties:
+
+    \begin{align*}
+      &\text{molar volume (liquid):} V^L =
+      \SI{15.283e-6}{\meter\cubed\per\mole} \\
+      &\Delta H = \SI{127.4}{\kilo\joule\per\mole} \\
+      T_{\ch{Mg}}^b= \SI{1087}{\celsius} \text{ at atmospheric pressure} \\
+      \gamma_{\ch{Mg}}^L = \SI{721e-5}{\joule\per\centi\meter\squared}
+    \end{align*}
+    \begin{enumerate}[(a)]
+      \item Calculate the vapor pressure over the pool of molten magnesium
+        in the furnace. [Hint: consider
+        that the liquid and vapor phases are in equilibrium]
+      \item Calculate the vapor pressure of magnesium within a
+        \SI{10}{\nano\meter}
+        bubble that is produced by cavitation.
+    \end{enumerate}
+\end{enumerate}
+
+\pagebreak
+\section*{Supporting code:}
+\inputminted{julia}{./calculations/src/calculations.jl}
+
+\end{document}
