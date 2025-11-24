@@ -31,31 +31,73 @@
         axes.
 
     \boxedanswer{
-        1 
+    The two-phase regions collapse into a single line, resulting in only
+    one-phase regions having any area.
+
+
+       \centering
+       \includegraphics[width=0.4\textwidth]{./assets/fig_2.png}
     }
+
 
     \end{enumerate}
 
     \pagebreak
 
   \item Consider a 2D strip of silicon (conductivity $\sigma =
-      \SI{4.35e-4}{\per(\ohm\meter)}$, Seebeck coefficient
+      \SI{4.35e-4}{\per\ohm\per\meter}$, Seebeck coefficient
     $S = \SI{440}{\micro\volt\per\kelvin})$.
     Using the expression for electrical current density
-    $\bm{J_q} = -\sigma\Delta\phi - \sigma S\Delta T$:
+    $\bm{J_q} = -\sigma\nabla\phi - \sigma S\nabla T$:
 
     \begin{enumerate}
-      \item Determine the temperature gradient needed to maintain a
-        potential difference of \SI{8}{\volt} across the
+      \item Determine the temperature difference needed to maintain a
+        potential difference of \SI{8}{\micro\volt} across the
         material, assuming that no net current is transferred.
+
+        \boxedanswer{
+            \begin{align*}
+                0 &= -\sigma\nabla\phi  - \sigma S\nabla T \\
+                \sigma\nabla\phi &=  - \sigma S\nabla T \\
+                \nabla T &= -\frac{\nabla \phi}{S} \\
+                \nabla T &= -\frac{\SI{8e-6}{\volt}}{\SI{440e-6}{\volt\per\kelvin}} \\
+                \Aboxed{\nabla T &= -\SI{0.018}{\kelvin}}
+            \end{align*}
+
+            The negative indicates that the voltage gradient is in the opposite
+            direction as the temperature gradient.
+        }
+
       \item If the material is a $\SI{1}{cm} \times \SI{1}{\centi\meter}$
-        panel (with the bottom-left corner at the origin) and \SI{8}{\volt}
+        panel (with the bottom-left corner at the origin) and \SI{8}{\micro\volt}
         is maintained across the $x$-direction with potential function
         $\phi(x) = (\SI{8}{\volt\per\centi\meter})x$ and a temperature
         difference of \SI{10}{\kelvin} is maintained along the y-direction
         with temperature function $T(y) = \SI{300}{\kelvin} +
         (\SI{10}{\kelvin/\centi\meter})y$, determine the magnitude of the
         current density.
+
+        \boxedanswer{
+            \begin{align*}
+                \phi(x) &= \SI{8}{\micro\volt\per\centi\meter}\cdot x \\
+                \frac{d\phi}{dx} &= \frac{\SI{8e-6}{\volt}}{\SI{0.01}{\meter}} = 
+                    \SI{8e-4}{\volt\per\meter} \\
+                T(y) &= \SI{300}{\kelvin} + \SI{10}{\kelvin}\cdot y \\ 
+                \frac{dT}{dy} &= \frac{\SI{10}{\kelvin}}{\SI{0.01}{\meter}} = \SI{1000}{\kelvin\per\meter} \\
+                S &= \SI{400e-6}{\volt\per\kelvin} = \SI{4.40e-4}{\volt\per\kelvin} \\
+                J &= -\sigma\nabla\phi - \sigma S \nabla T \\
+                \nabla\phi &= \frac{d\phi}{dx}\hat i \\
+                \nabla T &= \frac{dT}{dy}\hat j \\
+                J_x &= -\sigma\frac{d\phi}{dx} = -\sigma(\SI{8e-4}{\ampere\per\meter\squared}) \\
+                J_y &= -\sigma S\frac{dT}{dy} = -\sigma(\SI{0.44}{\ampere\per\meter\squared}) \\
+                J &= -\sigma(\num{8e-4}\hat i + \num{0.44}\hat j)\si{\ampere\per\meter\squared} \\
+                |J| &= \sigma\sqrt{(\num{8e-4})^2 + (\num{0.44})^2}\si{\ampere\per\meter\squared} \\
+                |J| &= -\sigma(0.44)\si{\ampere\per\meter\squared} \\
+                |J| &= -(\SI{4.35e-4}{\per\ohm\per\meter})(0.44) \\
+                \Aboxed{|J| &= \SI{1.914e-4}{\ampere\per\meter\squared}}
+            \end{align*}
+        }
+
     \end{enumerate}
 
     \pagebreak
@@ -77,21 +119,73 @@
       \item If a microsphere is brought from the pure water region into the
         pure oil region (so that it is completely immersed in water and oil),
         compute the change in enthalpy of the system, assuming that
-        the enthalpy is dominated by the interfacial cost (H ≈ γA).
+        the enthalpy is dominated by the interfacial cost ($H \approx \gamma A$).
+
+        \boxedanswer{
+            \begin{align*}
+                r_{\text{oil}} &= \SI{50e-6}{\meter} \\
+                r_{\mu} &= \SI{1e-6}{\meter} \\
+                \gamma_{\text{oil--water}} &= \SI{0.05}{\joule\per\meter\squared} \\
+                \gamma_{\mu\text{--oil}} &= \SI{0.01}{\joule\per\meter\squared} \\
+                \gamma_{\mu\text{--water}} &= \SI{0.02}{\joule\per\meter\squared} \\
+                A_\mu &= 4\pi r_\mu^2 = 4\pi(\SI{1e-6}{\meter})^2 = \SI{1.257e-11}{\meter\squared} \\
+                A_\text{drop} &= 4\pi r_{\text{oil}}^2 = \SI{3.141e-8}{\meter\squared} \\
+                \Delta H &= H_f - H_i = (\gamma_{\mu{\text{--oil}}} - \gamma_{\mu\text{--water}})A_\mu \\
+                \Delta H &= (\SI{0.01}{\joule\per\meter\squared} - \SI{0.02}{\joule\per\meter\squared})(\SI{1.257e-11}{\meter\squared})  \\
+                \Aboxed{\Delta H &= \SI{-1.257e-13}{\joule}}
+            \end{align*}
+        }
+
       \item If a microsphere is brought from the pure water region to the
-        oil-water interface, calculate the change in entropy,
+        oil-water interface, calculate the change in enthalpy,
         assuming that half of the particle’s surface is in the oil and
         the other half is in the water.
+
+        \boxedanswer{
+            \begin{align*}
+                H_\text{int} &= \frac{1}{2}\gamma_{\mu{\text{--oil}}}A_\mu + 
+                    \frac{1}{2}\gamma_{\mu\text{--water}}A_\mu \\ 
+                H_\text{int} &= \SI{1.885e-13}{\joule} \\ 
+                H_i &= \gamma_{\mu\text{--water}}A_\mu \\
+                H_i &= \SI{2.513e-13}{\joule} \\
+                \Delta H &= H_\text{int} - H_i \\
+                \Delta H &= \SI{1.885e-13}{\joule} - \SI{2.513e-13}{\joule} \\
+                \Aboxed{\Delta H &= \SI{-6.28e-14}{\joule}}
+            \end{align*}
+        }
+
       \item What is the change in the enthalpy of the oil-in-water droplet if
         50\% of the droplet’s surface is covered with microspheres?
+
+        \boxedanswer{
+            \begin{align*}
+                \Delta H &= \left[\overbrace{\frac{1}{2}\gamma_{\text{oil--water}} +
+                    \frac{1}{2}\cdot\frac{1}{2}(\gamma_{\mu\text{--oil}}+
+            \gamma_{\mu\text{--water}})}^{\gamma_\text{eff}} - \gamma_{\text{oil--water}}\right]A_\text{oil} \\
+                \Aboxed{\Delta H &= \SI{-5.498e-10}{\joule}} \\
+            \end{align*}
+        }
+
+    \pagebreak
+
       \item Using the result of (c) determine the effective interfacial free
         energy density $\gamma_\text{eff} = H/A$ of the oil droplet at
         50\% coverage.
+
+        \boxedanswer{
+            \begin{align*}
+                \gamma_\text{eff} &= \frac{1}{2}\gamma_{\text{oil--water}} +
+                    \frac{1}{2}\cdot\frac{1}{2}(\gamma_{\mu\text{--oil}}+
+                    \gamma_{\mu\text{--water}}) \\
+                \Aboxed{\gamma_\text{eff} &= \SI{0.0325}{\joule\per\meter\squared}}
+            \end{align*}
+        }
+
     \end{enumerate}
 
     \pagebreak
 
-  \item Consider a pool of molten magnesium in an open furnace (so that there
+  \item Consider a pool of molten magnesium in a closed furnace (so that there
     is a vapor phase above the liquid phase). The melt is held at a
     temperature of $T = \SI{800}{\celsius}$ and has the following properties:
 
@@ -107,7 +201,7 @@
         in the furnace. [Hint: consider
         that the liquid and vapor phases are in equilibrium]
       \item Calculate the vapor pressure of magnesium within a
-        \SI{10}{\nano\meter}
+        \SI{10}{\nano\meter} diameter
         bubble that is produced by cavitation.
     \end{enumerate}
 \end{enumerate}
