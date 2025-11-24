@@ -21,7 +21,7 @@
 ]
 % \setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
-\else\ifluatex
+\els\else\ifluatex
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}[
   Ligatures=TeX,
@@ -31,8 +31,7 @@
   Ligatures=TeX,
   Numbers=OldStyle
 ]
-\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
-\else
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 \usepackage{libertine}
 \fi\fi
 
