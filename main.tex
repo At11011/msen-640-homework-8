@@ -193,21 +193,58 @@
       &\text{molar volume (liquid):} V^L =
       \SI{15.283e-6}{\meter\cubed\per\mole} \\
       &\Delta H = \SI{127.4}{\kilo\joule\per\mole} \\
-      T_{\ch{Mg}}^b= \SI{1087}{\celsius} \text{ at atmospheric pressure} \\
-      \gamma_{\ch{Mg}}^L = \SI{721e-5}{\joule\per\centi\meter\squared}
+      &T_{\ch{Mg}}^b= \SI{1087}{\celsius} \text{ at atmospheric pressure} \\
+      &\gamma_{\ch{Mg}}^L = \SI{721e-5}{\joule\per\centi\meter\squared}
     \end{align*}
+
     \begin{enumerate}[(a)]
       \item Calculate the vapor pressure over the pool of molten magnesium
         in the furnace. [Hint: consider
         that the liquid and vapor phases are in equilibrium]
+
+        \boxedanswer{
+            \begin{align*}
+                T &= \SI{1073.15}{\kelvin} \\
+                T_b &= \SI{1360.15}{\kelvin} \\
+                P_{\text{atm}} &= \SI{101325}{\pascal} \\
+                \Delta H &= \SI{127400}{\joule\per\mole} \\
+                d &= \SI{10e-9}{\meter} \\
+                r &= \SI{5e-9}{\meter} \\
+                \gamma &= \SI{0.721}{\joule\per\centi\meter\squared} \\
+                \ln\left(\frac{P_{\text{flat}}}{P_{\text{atm}}}\right) &=
+                    -\frac{\Delta H}{R}\left(\frac{1}{T}-\frac{1}{T_b}\right) \\
+                P_{\text{flat}} &= P_{\text{atm}}\exp\left[-\frac{\Delta H}{R}
+                    \left(\frac{1}{T}-\frac{1}{T_b}\right)\right] \\
+                    P_{\text{flat}} &= (\SI{101325}{atm})\exp\left[
+                        -\frac{(\SI{127400}{\joule\per\mole})}
+                        {(\SI{8.314}{\joule\per\mole\per\kelvin})}
+                    \left(\frac{1}{(\SI{1073.15}{\kelvin})}-
+                    \frac{1}{\SI{1360.15}{\kelvin}}\right)\right] \\
+                        \Aboxed{P_{\text{flat}} &= \SI{4980.53}{\pascal}}
+            \end{align*}
+        }
+
       \item Calculate the vapor pressure of magnesium within a
         \SI{10}{\nano\meter} diameter
         bubble that is produced by cavitation.
+
+        \boxedanswer{
+            \begin{align*}
+                \ln\frac{p_r}{p} &= \frac{2\gamma V^L}{RTr} \\
+                p_r &= p\exp\left[\frac{2\gamma V^L}{RTr}\right] \\
+                p_r &= p\exp\left[\frac{2(\SI{0.721}{\joule\per\centi\meter\squared})
+                        (\SI{15.283e-6}{\meter\cubed\per\mole})
+                    \left(\frac{4}{3}\pi(\SI{5e-9}{\meter})^3\right)}
+                {(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{1360.15}{\kelvin})(\SI{5e-9}{\meter})}\right] \\
+                        \Aboxed{p_r &= \SI{5232.734}{\pascal}}
+            \end{align*}
+        }
+
     \end{enumerate}
 \end{enumerate}
 
-\pagebreak
-\section*{Supporting code:}
-\inputminted{julia}{./calculations/src/calculations.jl}
+% \pagebreak
+% \section*{Supporting code:}
+% \inputminted{julia}{./calculations/src/calculations.jl}
 
 \end{document}
